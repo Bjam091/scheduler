@@ -1,5 +1,5 @@
 import React from "react";
-import InterviewerList from "components/InterviewList";
+// import InterviewerList from "components/InterviewList";
 
 export default function Show(props){
   return(
