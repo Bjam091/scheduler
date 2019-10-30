@@ -1,6 +1,6 @@
 import { statements } from "@babel/template";
 
-export function getAppointmentsForDay(state, day) {
+export default function getAppointmentsForDay(state, day) {
     let appointments = [];
 for(let selectedDay of state.days){
   if(selectedDay.name === day){
