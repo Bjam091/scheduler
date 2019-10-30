@@ -1,6 +1,7 @@
 import { statements } from "@babel/template";
+import React from "react";
 
-export default function getAppointmentsForDay(state, day) {
+function getAppointmentsForDay(state, day) {
     let appointments = [];
 for(let selectedDay of state.days){
   if(selectedDay.name === day){
@@ -13,7 +14,28 @@ for(let selectedDay of state.days){
 return appointments;
 }
 
+function getInterview(state, interview){
+  if (interview === null){
+    return null
+  } else {
 
+    
+  // }
+  // for(let id in state.interviewers){
+  //   if(id === interview.interviewer){
+  //     interviewersList = state.interviewers[id]
+  //   }
+  
+  const student = interview.student
+  const interviewer = state.interviewers[interview.interviewer]
+  const interviewObj = {student, interviewer}
+  return interviewObj
+}
+}
+export {
+  getAppointmentsForDay,
+  getInterview
+}
 
 
 
