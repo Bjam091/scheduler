@@ -1,5 +1,5 @@
-import { statements } from "@babel/template";
-import React from "react";
+// import { statements } from "@babel/template";
+// import React from "react";
 
 function getAppointmentsForDay(state, day) {
     let appointments = [];
@@ -18,14 +18,6 @@ function getInterview(state, interview){
   if (interview === null){
     return null
   } else {
-
-    
-  // }
-  // for(let id in state.interviewers){
-  //   if(id === interview.interviewer){
-  //     interviewersList = state.interviewers[id]
-  //   }
-  
   const student = interview.student
   const interviewer = state.interviewers[interview.interviewer]
   const interviewObj = {student, interviewer}
