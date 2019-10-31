@@ -24,11 +24,26 @@ function getInterview(state, interview){
   return interviewObj
 }
 }
-export {
-  getAppointmentsForDay,
-  getInterview
+
+
+function getInterviewForDays(state, day) {
+  let interviewers = [];
+for(let selectedDay of state.days){
+if(selectedDay.name === day){
+  for(let id of selectedDay.interviewers){
+    interviewers.push(state.interviewers[id])
+  }
+}
+}
+
+return interviewers;
 }
 
 
+export {
+  getAppointmentsForDay,
+  getInterview,
+  getInterviewForDays
+}
 
  
