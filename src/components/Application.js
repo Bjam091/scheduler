@@ -3,7 +3,7 @@ import "components/Application.scss";
 import DayList from "components/DayList";
 import Appointment from "components/Appointment";
 import axios from 'axios';
-import { getAppointmentsForDay, getInterview } from "../helpers/selectors";
+import { getAppointmentsForDay, getInterview, getInterviewersByDay } from "../helpers/selectors";
 
 
 
@@ -23,6 +23,50 @@ export default function Application(props) {
     interviewers: {}
   });
 
+  function bookInterview(id, interview) {
+    return axios.put(`http://localhost:8001/api/appointments/${id}`, {interview})
+    .then(() => {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    setState({
+      ...state,
+      appointments
+    });
+    console.log(id, interview);
+    })
+  }
+
+  function cancelInterview(id){
+    return axios.delete(`http://localhost:8001/api/appointments/${id}`)
+    .then(() => {
+      const appointment = {
+        ...state.appointments[id],
+        interview: null
+      };
+  
+      const appointments = {
+        ...state.appointments,
+        [id]: appointment
+      };
+      setState({
+        ...state,
+        appointments
+      });
+   
+      })
+    }
+  
+  
+
+
+
   useEffect(() => {
 
 
@@ -41,7 +85,8 @@ export default function Application(props) {
 
     const appointments = getAppointmentsForDay(state, state.day);
     const appointmentList = appointments.map((appointment) => {
-      const interview = getInterview(state, appointment.interview);
+    const interview = getInterview(state, appointment.interview);
+    const interviewers = getInterviewersByDay(state, state.day)
 
       return (
         <Appointment
@@ -49,6 +94,9 @@ export default function Application(props) {
           id={appointment.id}
           time={appointment.time}
           interview={interview}
+          interviewers={interviewers}
+          bookInterview={bookInterview}
+          cancelInterview={cancelInterview}
           />
  
       )

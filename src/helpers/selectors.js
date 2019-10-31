@@ -26,7 +26,7 @@ function getInterview(state, interview){
 }
 
 
-function getInterviewForDays(state, day) {
+function getInterviewersByDay(state, day) {
   let interviewers = [];
 for(let selectedDay of state.days){
 if(selectedDay.name === day){
@@ -43,7 +43,7 @@ return interviewers;
 export {
   getAppointmentsForDay,
   getInterview,
-  getInterviewForDays
+  getInterviewersByDay
 }
 
  
