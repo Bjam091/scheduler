@@ -1,8 +1,13 @@
 import React from "react";
 import "components/InterviewList.scss";
-// import classNames from "classnames";
 import InterviewerListItem from "components/InterviewListItem";
 
+import PropTypes from 'prop-types';
+
+InterviewerList.propTypes = {
+  value: PropTypes.number,
+  onChange: PropTypes.func.isRequired
+};
 
 
 

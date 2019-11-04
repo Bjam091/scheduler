@@ -75,7 +75,6 @@ export default function useApplicationData(){
 
   function getDays() {
     const days = axios.get('http://localhost:8001/api/days');
-    
     Promise.all([days]).then(([days]) => 
     dispatch({ type: SET_DAYS, days: days.data})
     )
@@ -96,14 +95,12 @@ export default function useApplicationData(){
       getDays();
       })
     }
-    return {   
-      state,
-      setDay,
-      bookInterview,
-      cancelInterview
-    }
 
-  
-
+  return {   
+    state,
+    setDay,
+    bookInterview,
+    cancelInterview
+  }
   
 }
