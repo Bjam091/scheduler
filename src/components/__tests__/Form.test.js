@@ -36,6 +36,7 @@ describe("Form", () => {
     <Form interviewers={interviewers} 
     onSave={onSave}/>
     );
+    
     fireEvent.click(getByText("Save"));
   
     expect(getByText(/student name cannot be blank/i)).toBeInTheDocument();
