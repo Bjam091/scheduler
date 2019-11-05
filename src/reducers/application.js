@@ -1,3 +1,5 @@
+import DayList from "components/DayList";
+
 export const SET_DAY = "SET_DAY";
 export const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
 export const SET_INTERVIEW = "SET_INTERVIEW";
@@ -28,14 +30,30 @@ export default function reducer(state, action) {
     case SET_INTERVIEW: {
        const appointment = {
         ...state.appointments[action.id],
-        interview: { ...action.interview }
+        interview: action.interview && { ...action.interview }
       };
   
       const appointments = {
         ...state.appointments,
         [action.id]: appointment
       };
-      return {...state, appointments}
+
+      const findDay = state.days.find(day => day.appointments.includes(action.id));
+      
+      const spots = findDay.appointments.filter(id => appointments[id].interview === null).length
+      
+      const days = state.days.map(day => {
+        if(day.name === findDay.name) {
+          return {
+            ...day,
+            spots
+          }
+        }
+
+        return day;
+      })
+
+      return {...state, days, appointments}
     }
 
     
