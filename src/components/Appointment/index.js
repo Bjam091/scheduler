@@ -54,10 +54,15 @@ function destroy(event) {
   <article className="appointment"
   data-testid="appointment">
     
- <Header time={props.time} />
+  <Header time={props.time} />
 
  
-  {mode === EMPTY && (<Empty onAdd={() => transition(CREATE)} /> )}
+  {mode === EMPTY && (
+  <Empty 
+  onAdd={() => transition(CREATE)} 
+  /> 
+  )}
+
   {mode === SHOW && (
   <Show
     student={props.interview.student}
@@ -118,8 +123,6 @@ function destroy(event) {
   onClose={() => back()}
   />
 )}
-
- 
   </article>
 
   )
