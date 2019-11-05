@@ -24,7 +24,7 @@ function reducer(state, action) {
     case SET_DAYS:
       return {
         ...state,
-        days: action.days,
+        days: action.value,
       }
 
     case SET_INTERVIEW: {
@@ -73,18 +73,48 @@ export default function useApplicationData(){
     )
   }, []);
 
-  function getDays() {
-    const days = axios.get('http://localhost:8001/api/days');
-    Promise.all([days]).then(([days]) => 
-    dispatch({ type: SET_DAYS, days: days.data})
-    )
+  // function getDays() {
+  //   const days = axios.get('http://localhost:8001/api/days');
+  //   Promise.all([days]).then(([days]) => 
+  //   dispatch({ type: SET_DAYS, days: days.data})
+  //   )
+  // }
+
+  function findDayId(day) {
+    if (day === 'Monday'){
+      return 0
+    } else if (day === 'Tuesday'){
+      return 1
+    } else if (day === 'Wednesday'){
+      return 2
+    } else if (day === 'Thursday'){
+      return 3
+    } else if (day === 'Friday'){
+      return 4
+    }
   }
 
   function bookInterview(id, interview) {
     return axios.put(`http://localhost:8001/api/appointments/${id}`, {interview})
     .then(() => {
       dispatch({ type: SET_INTERVIEW, id, interview });
-      getDays();
+      const dayId = findDayId(state.day)      
+      let updatedSpots = 0;
+      if (state.appointments[id].interview) {
+        updatedSpots = state.days[dayId].spots;
+      } else {
+        updatedSpots = state.days[dayId].spots - 1;
+      }
+      const day = {
+        ...state.days[dayId],
+         spots:updatedSpots
+      }
+      const days = [
+        ...state.days,
+      ]
+      days[dayId] = day
+      dispatch({type: SET_DAYS, value: days});
+      
     })
   }
 
@@ -92,8 +122,22 @@ export default function useApplicationData(){
     return axios.delete(`http://localhost:8001/api/appointments/${id}`)
     .then(() => {
       dispatch({ type: SET_INTERVIEW, id });
-      getDays();
-      })
+      const dayId = findDayId(state.day)      
+      let updatedSpots = state.days[dayId].spots + 1;
+      
+      const day = {
+        ...state.days[dayId],
+         spots:updatedSpots
+      }
+      const days = [
+        ...state.days,
+      ]
+      days[dayId] = day
+      dispatch({type: SET_DAYS, value: days});
+      
+  
+      
+    })
     }
 
   return {   
