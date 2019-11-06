@@ -3,6 +3,7 @@
 Interview Scheduler allows a user to book, edit or delete an interview, while also selecting with whom they would like to have the interview with. The appointment slots in the sidebar will update once an interview has been created or deleted, to let the user know the remaining spots.
 
 This project uses React, HTML, CSS, JS, and more for front-end, and then Node, PostgreSQL and multiple back-end dependencies. This project also uses Jest and Cypress for testing.
+
 =========
 ## Final Product
 
