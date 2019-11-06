@@ -159,5 +159,7 @@ describe("Application", () => {
 
     fireEvent.click(getByAltText(appointment, "Close"));
 
+    await waitForElement(() => getByText(container, "Archie Cohen"));
+
   })
 });
