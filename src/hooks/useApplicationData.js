@@ -7,6 +7,7 @@ import reducer, {
   SET_INTERVIEW
 } from "reducers/application";
 
+//calls on the reducers to set the data for the applicaion
 
 export default function useApplicationData() {
 

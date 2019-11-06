@@ -1,7 +1,8 @@
 export const SET_DAY = "SET_DAY";
 export const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
 export const SET_INTERVIEW = "SET_INTERVIEW";
-export const SET_DAYS = "SET_DAYS";
+
+//reducers used in place of setState for the useApplicationData.js file
 
 export default function reducer(state, action) {
   switch (action.type) {
@@ -18,12 +19,6 @@ export default function reducer(state, action) {
         appointments: action.appointments,
         interviewers: action.interviewers
       }
-
-    // case SET_DAYS:
-    //   return {
-    //     ...state,
-    //     days: action.value,
-    //   }
 
     case SET_INTERVIEW: {
       const appointment = {
