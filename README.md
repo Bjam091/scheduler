@@ -8,16 +8,16 @@ This project uses React, HTML, CSS, JS, and more for front-end, and then Node, P
 ## Final Product
 
 Screenshot 1
-Main interview page on load ![](httpsversion -//github.com/Bjam091/scheduler/blob/master/docs/Home%20Page%20on%20Load.png?raw=true)
+Main interview page on load ![](https://github.com/Bjam091/scheduler/blob/master/docs/Home%20Page%20on%20Load.png?raw=true)
 
 Screenshot 2
-Main interview page with new interview being added ![](httpsversion -//github.com/Bjam091/scheduler/blob/master/docs/Added%20an%20Interview.png?raw=true)
+Main interview page with new interview being added ![](https://github.com/Bjam091/scheduler/blob/master/docs/Added%20an%20Interview.png?raw=true)
 
 Screenshot 3
-Main interview page with new interview, sidebar updated to show one spot has been taken, interview is selected to show that hover reveals additional buttons ![](httpsversion -//github.com/Bjam091/scheduler/blob/master/docs/Page%20with%20new%20interview%20booked.png?raw=true)
+Main interview page with new interview, sidebar updated to show one spot has been taken, interview is selected to show that hover reveals additional buttons ![](https://github.com/Bjam091/scheduler/blob/master/docs/Page%20with%20new%20interview%20booked.png?raw=true)
 
 Screenshot 4
-Test Coverage for the entire project ![](httpsversion -//github.com/Bjam091/scheduler/blob/master/docs/Error%20Testing%20Stats.png?raw=true)
+Test Coverage for the entire project ![](https://github.com/Bjam091/scheduler/blob/master/docs/Error%20Testing%20Stats.png?raw=true)
 
 ## Setup
 Fork this repository, as well as the scheduler-api repository to fully run this program. Scheduler-api can be found [here!](https://github.com/Bjam091/scheduler-api)
