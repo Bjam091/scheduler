@@ -20,7 +20,7 @@ Screenshot 4
 Test Coverage for the entire project ![](httpsversion -//github.com/Bjam091/scheduler/blob/master/docs/Error%20Testing%20Stats.png?raw=true)
 
 ## Setup
-Fork this repository, as well as the scheduler-api repository to fully run this program. Scheduler-api can be found ![here!](https://github.com/Bjam091/scheduler-api)
+Fork this repository, as well as the scheduler-api repository to fully run this program. Scheduler-api can be found [here!](https://github.com/Bjam091/scheduler-api)
 
 
 Install dependencies with `npm install`.
