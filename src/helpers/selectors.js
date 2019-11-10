@@ -16,7 +16,7 @@ function getAppointmentsForDay(state, day) {
 //gets all the interview data and into an object
 
 function getInterview(state, interview) {
-  if (interview === null) {
+  if (!interview) {
     return null
   } else {
     const student = interview.student
